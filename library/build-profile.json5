@@ -3,11 +3,10 @@
   "buildOption": {
     "externalNativeOptions": {
       "path": "./src/main/cpp/CMakeLists.txt",
-      "arguments": "",
+      "arguments": "-DCMAKE_SKIP_RPATH=TRUE",
       "cppFlags": "",
       "abiFilters": [
         "arm64-v8a",
-        "x86_64"
       ]
     },
     "resOptions": {
@@ -19,26 +18,16 @@
   "buildOptionSet": [
     {
       "name": "release",
-      "arkOptions": {
-        "obfuscation": {
-          "ruleOptions": {
-            "enable": false,
-            "files": [
-              "./obfuscation-rules.txt"
-            ]
-          },
-          "consumerFiles": [
-            "./consumer-rules.txt"
-          ]
-        }
+      "externalNativeOptions": {
+        "arguments": "-DCMAKE_BUILD_TYPE=Release"
       },
-      "nativeLib": {
-        "debugSymbol": {
-          "strip": true,
-          "exclude": []
-        }
-      }
     },
+    {
+      "name": "debug",
+      "externalNativeOptions": {
+        "arguments": "-DCMAKE_BUILD_TYPE=Release"
+      }
+    }
   ],
   "targets": [
     {

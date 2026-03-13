@@ -1,4 +1,5 @@
 #include "napi/native_api.h"
+#include "grpc++/impl/service_type.h"
 
 static napi_value Add(napi_env env, napi_callback_info info)
 {
